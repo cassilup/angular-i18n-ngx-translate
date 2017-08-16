@@ -15,7 +15,7 @@
 10. [ Inject `translate` Into the Main App Component](#10-inject-translate-into-the-main-app-component)
 11. [ Mark Texts for Translation](#11-mark-texts-for-translation)
 12. [ Switch Languages](#12-switch-languages)
-13. [ Enjoy! 😎](#13-enjoy-😎)
+13. [ Enjoy! 😎](#13-enjoy-)
 
 ---
 
