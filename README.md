@@ -67,7 +67,7 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
   > **Note**:
   >
   > `npm i -s` is syntactic sugar for `npm install --save`.
-### 8. Declare `@ngx-translate` in the App's Parent Module
+### 7. Declare `@ngx-translate` in the App's Parent Module
 
     // app.module.ts
 
@@ -95,13 +95,13 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
       })
     ]
 
-### 9. Automatically Extract Texts Marked for Translation
+### 8. Automatically Extract Texts Marked for Translation
 
 
     npm i -g @biesbjerg/ngx-translate-extract
     ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json
 
-### 12. Add `ngx-translate-extract` as a `npm` Script
+### 9. Add `ngx-translate-extract` as a `npm` Script
 Since we'll be using the string extractor tool during development, we should add it as a `npm` script:
 
     // package.json
@@ -165,7 +165,7 @@ Now that we are able to access the Translation Service, let's mark a text for tr
 
 Reloading the application results in the text `"welcome"` being rendered. That happens because there's no value specified for the `"welcome"` key in our locale files.
 
-Let's add some translation values:
+Let's add some translation values to the English locale file:
 
     // src/assets/i18n/en.json
 
@@ -174,6 +174,7 @@ Let's add some translation values:
       ...
     }
 
+And to the German locale file:
 
     // src/assets/i18n/de.json
 
@@ -239,4 +240,5 @@ And switching to DE will look like this:
 
 ### 13. Enjoy! 😎
 
-> **Note**: You can find the final version of the code in this tutorial in this repository. 👍
+---
+*You can find the final version of the code for this tutorial in this repository.* 👍
