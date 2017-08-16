@@ -17,22 +17,22 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
 > `@ngx-translate` loads the `.json` files dynamically (during runtime) on a per-need basis. This means that when the app first loads, only the default locale file is downloaded. (This means that new locale files will be requested only when the language is changed.)
 
 ### 2. Install `angular-cli`
-    ```
+
     npm i -g @angular/cli
-    ```
+
 
   > **Note**:
   >
   > `npm i -g` is syntactic for `npm install --global`.
 ### 3. Bootstrap the Angular App
-    ```
+
     ng new i18nExample
     cd i18nExample
-    ```
+
 ### 4. Serve the App in the Browser
-    ```
+
     ng s
-    ```
+
 
   > **Note**:
   >
