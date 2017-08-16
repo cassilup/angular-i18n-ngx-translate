@@ -1,5 +1,9 @@
+
 <h1>
-  {{title}}
+  {{ "welcome" | translate }}
 </h1>
+
+<button (click)="switchLanguage('en')">EN</button>
+<button (click)="switchLanguage('de')">DE</button>
 
 <app-say-hi></app-say-hi>

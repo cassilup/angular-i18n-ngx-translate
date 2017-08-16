@@ -1,27 +1,36 @@
 # i18n in Angular Tutorial
 
-1. angular i18n (https://angular.io/guide/i18n) vs. @ngx-translate (http://www.ngx-translate.com/)
-2. install angular-cli
+### 1. Choosing a i18n strategy
+
+The [official Angular i18n solution](https://angular.io/guide/i18n) is Enterprise-oriented and built to work with the industry standard translation source file format.
+
+Traditionally, SPA apps use `.json` files for storing/loading reading @ngx-translate (http://www.ngx-translate.com/).
+
+*"You need to build and deploy a separate version of the application for each supported language."* - https://angular.io/guide/i18n
+
+http loader for .json files
+
+### 2. install angular-cli
     ```
     npm install -g @angular/cli
     ```
-3. bootstrap app:
+### 3. bootstrap app:
     ```
     ng new i18nExample
     ```
-4. Serve the app in the browser:
+### 4. Serve the app in the browser:
     ```
     ng serve
     ```
-5. create new component:
+### 5. create new component:
     ```
     ng generate component sayHi
     ```
-6. Install @ngx-translate:
+### 6. Install @ngx-translate:
     ```
-    npm i --save-dev @ngx-translate/core @ngx-translate/http-loader
+    npm install --save @ngx-translate/core @ngx-translate/http-loader
     ```
-8. Declare @ngx-translate in app.module.ts
+### 8. Declare @ngx-translate in app.module.ts
     ```
     import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
     import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -39,7 +48,7 @@
       // ...
       HttpClientModule,
       TranslateModule.forRoot({
-        loader: { 
+        loader: {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,
           deps: [HttpClient]
@@ -47,12 +56,12 @@
       })
     ]
     ```
-9. ngx-translate-extract:
+### 9. ngx-translate-extract:
     ```
-    npm install @biesbjerg/ngx-translate-extract
+    npm install --g @biesbjerg/ngx-translate-extract
     ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json
     ```
-10. Inject `translate` as a AppComponent private property:
+### 10. Inject `translate` as a AppComponent private property:
 ```
 import { TranslateService } from '@ngx-translate/core';
 
@@ -62,6 +71,8 @@ constructor(translate: TranslateService) {
   translate.setDefaultLang('en');
 }
 ```
-11. Mark text for translation: `{{ … | translate }}`
-12. Add `ngx-translate-extract` as an npm script
-13. Enjoy! 😎
+### 11. Mark text for translation: `{{ … | translate }}`
+### 12. Language chooser
+### 13.
+### 12. Add `ngx-translate-extract` as an npm script
+### 13. Enjoy! 😎

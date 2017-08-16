@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n:update": "ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json"
   },
   "private": true,
   "dependencies": {
