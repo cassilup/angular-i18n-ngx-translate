@@ -16,7 +16,7 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
 >
 > `@ngx-translate` loads the `.json` files dynamically (during runtime) on a per-need basis. This means that when the app first loads, only the default locale file is downloaded. (This means that new locale files will be requested only when the language is changed.)
 
-### 2. Install `angular-cli`
+### 2. Install [`angular-cli`](https://github.com/angular/angular-cli)
 
     npm i -g @angular/cli
 
@@ -38,18 +38,18 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
   >
   > `ng s` is syntactic for `ng serve`.
 ### 5. Create a New Component
-    ```
+
     ng generate component sayHi
-    ```
+
 ### 6. Install `@ngx-translate`
-    ```
+
     npm i -s @ngx-translate/core @ngx-translate/http-loader
-    ```
+
   > **Note**:
   >
   > `npm i -s` is syntactic for `npm install --save`.
 ### 8. Declare `@ngx-translate` in the App's Parent Module
-    ```
+
     // app.module.ts
 
     import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -75,53 +75,52 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
         }
       })
     ]
-    ```
+
 ### 9. Automatically Extract Texts Marked for Translation
 
-    ```
+
     npm i -g @biesbjerg/ngx-translate-extract
     ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json
-    ```
+
 ### 12. Add `ngx-translate-extract` as a `npm` Script
 Since we'll be using the string extractor tool during development, we should add it as a `npm` script:
 
-```
-// package.json
+    // package.json
 
-// ...
+    // ...
 
-"scripts": {
-  // ...
-  "i18n:update": "ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json"
-},
+    "scripts": {
+      // ...
+      "i18n:update": "ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json"
+    },
 
-// ...
-```
+    // ...
+
 
 Now we can conveniently run:
-```
-npm run i18n:update
-```
+
+    npm run i18n:update
+
 
 ### 10. Inject `translate` Into the Main App Component
 
 In order to gain access to the Translation Service, we need to include it into the app:
-```
-// app.component.ts
 
-// ...
-import { TranslateService } from '@ngx-translate/core';
+    // app.component.ts
 
-// ...
+    // ...
+    import { TranslateService } from '@ngx-translate/core';
 
-export class AppComponent {
-  // ...
+    // ...
 
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-  }
-}
-```
+    export class AppComponent {
+      // ...
+
+      constructor(translate: TranslateService) {
+        translate.setDefaultLang('en');
+      }
+    }
+
 
 This is possible because we have previously declared that our `app.module.ts` imports the `TranslateModule`.
 
@@ -138,34 +137,31 @@ For the purpose of this tutorial, we will be using `TranslatePipe`.
 
 Now that we are able to access the Translation Service, let's mark a text for translation using `TranslatePipe`.
 
- ```
- // app.component.html
 
-   <h1>
-    {{ "welcome" | translate }}
-  </h1>
- ```
+    // app.component.html
+
+    <h1>
+      {{ "welcome" | translate }}
+    </h1>
 
 Reloading the application results in the text `"welcome"` being rendered. That happens because there's no value specified for the `"welcome"` key in our locale files.
 
 Let's add some translation values:
-```
-// src/assets/i18n/en.json
 
-{
-	"welcome": "Welcome!",
-  ...
-}
-```
+    // src/assets/i18n/en.json
 
-```
-// src/assets/i18n/de.json
+    {
+      "welcome": "Welcome!",
+      ...
+    }
 
-{
-	"welcome": "Willkomen!",
-  ...
-}
-```
+
+    // src/assets/i18n/de.json
+
+    {
+      "welcome": "Willkomen!",
+      ...
+    }
 
 Reloading the app will reveal the correct text being rendered for the `"welcome"` i18n key.
 
@@ -183,36 +179,38 @@ In order to switch the language dynamically, we need to call Translate Service's
 
 In order to do that, we declare a new private property `translate` in `AppComponent`:
 
-```
-// app.component.ts
 
-// ...
-import { TranslateService } from '@ngx-translate/core';
+    // app.component.ts
 
-// ...
-export class AppComponent {
-  translate: TranslateService; // <-- defining translate as a private property
+    // ...
+    import { TranslateService } from '@ngx-translate/core';
 
-  switchLanguage = (lang: string) => {  // <-- creating a new method
-    this.translate.use(lang); // <-- invoking `use()`
-  }
+    // ...
+    export class AppComponent {
+      translate: TranslateService; // <-- defining translate as a private property
 
-  constructor(translate: TranslateService) {
-    this.translate = translate;  // <-- binding the injected `TranslatedService` to the local `translate` property
-    translate.setDefaultLang('en');
-  }
-}
-```
+      switchLanguage = (lang: string) => {  // <-- creating a new method
+        this.translate.use(lang); // <-- invoking `use()`
+      }
+
+      constructor(translate: TranslateService) {
+        this.translate = translate;  // <-- binding the injected `TranslatedService` to the local `translate` property
+        translate.setDefaultLang('en');
+      }
+    }
+
 
 And in our template, we add two buttons for invoking `switchLanguage()`:
 
-```
-// app.component.html
 
-// ...
-<button (click)="switchLanguage('en')">EN</button>
-<button (click)="switchLanguage('de')">DE</button>
-// ...
-```
+    // app.component.html
+
+    // ...
+    <button (click)="switchLanguage('en')">EN</button>
+    <button (click)="switchLanguage('de')">DE</button>
+    // ...
+
 
 ### 13. Enjoy! 😎
+
+> **Note**: You can find the final version of the code in this tutorial in this repository. 👍

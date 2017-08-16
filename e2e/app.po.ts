@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class I18nExampleDryRunPage {
+export class I18nExamplePage {
   navigateTo() {
     return browser.get('/');
   }
