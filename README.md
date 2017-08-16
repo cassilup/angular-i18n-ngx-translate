@@ -1,28 +1,67 @@
-# I18nExampleDryRun
+# i18n in Angular Tutorial
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
+1. angular i18n (https://angular.io/guide/i18n) vs. @ngx-translate (http://www.ngx-translate.com/)
+2. install angular-cli
+    ```
+    npm install -g @angular/cli
+    ```
+3. bootstrap app:
+    ```
+    ng new i18nExample
+    ```
+4. Serve the app in the browser:
+    ```
+    ng serve
+    ```
+5. create new component:
+    ```
+    ng generate component sayHi
+    ```
+6. Install @ngx-translate:
+    ```
+    npm i --save-dev @ngx-translate/core @ngx-translate/http-loader
+    ```
+8. Declare @ngx-translate in app.module.ts
+    ```
+    import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+    import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+    import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-## Development server
+    // ...
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    export const createTranslateLoader = (http: HttpClient) => {
+      return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    };
 
-## Code scaffolding
+    // ...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+    imports: [
+      // ...
+      HttpClientModule,
+      TranslateModule.forRoot({
+        loader: { 
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+        }
+      })
+    ]
+    ```
+9. ngx-translate-extract:
+    ```
+    npm install @biesbjerg/ngx-translate-extract
+    ngx-translate-extract -i ./src -o ./src/assets/i18n/{de,en}.json --clean --format namespaced-json
+    ```
+10. Inject `translate` as a AppComponent private property:
+```
+import { TranslateService } from '@ngx-translate/core';
 
-## Build
+// ...
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+constructor(translate: TranslateService) {
+  translate.setDefaultLang('en');
+}
+```
+11. Mark text for translation: `{{ … | translate }}`
+12. Add `ngx-translate-extract` as an npm script
+13. Enjoy! 😎
