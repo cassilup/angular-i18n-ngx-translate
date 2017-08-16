@@ -23,7 +23,7 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
 
   > **Note**:
   >
-  > `npm i -g` is syntactic for `npm install --global`.
+  > `npm i -g` is syntactic sugar for `npm install --global`.
 ### 3. Bootstrap the Angular App
 
     ng new i18nExample
@@ -36,7 +36,7 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
 
   > **Note**:
   >
-  > `ng s` is syntactic for `ng serve`.
+  > `ng s` is syntactic sugar for `ng serve`.
 ### 5. Create a New Component
 
     ng generate component sayHi
@@ -47,7 +47,7 @@ Reasons I chose `@ngx-translate` over the official Angular i18n solution:
 
   > **Note**:
   >
-  > `npm i -s` is syntactic for `npm install --save`.
+  > `npm i -s` is syntactic sugar for `npm install --save`.
 ### 8. Declare `@ngx-translate` in the App's Parent Module
 
     // app.module.ts
