@@ -1,5 +1,8 @@
 # i18n in Angular Tutorial
 
+![i18n in Angular using ngx-translate Tutorial](http://i.imgur.com/cwWn9xR.jpg "i18n in Angular using ngx-translate Tutorial")
+
+
 ### 1. Choosing a i18n strategy
 
 The [official Angular i18n solution](https://angular.io/guide/i18n) is Enterprise-oriented and built to work with the industry standard translation source file format.
@@ -209,6 +212,13 @@ And in our template, we add two buttons for invoking `switchLanguage()`:
     <button (click)="switchLanguage('en')">EN</button>
     <button (click)="switchLanguage('de')">DE</button>
     // ...
+
+Loading the app will look like this:
+![i18n in Angular using ngx-translate Tutorial: English](http://i.imgur.com/uTzrhPy.png "i18n in Angular using ngx-translate Tutorial: English")
+
+And switching to DE will look like this:
+![i18n in Angular using ngx-translate Tutorial: German](http://i.imgur.com/0v322H5.png "i18n in Angular using ngx-translate Tutorial: German")
+
 
 
 ### 13. Enjoy! 😎
