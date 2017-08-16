@@ -2,6 +2,20 @@
 
 ![i18n in Angular using ngx-translate Tutorial](http://i.imgur.com/cwWn9xR.jpg "i18n in Angular using ngx-translate Tutorial")
 
+### Table of Contents
+    - [1. Choosing a i18n strategy](#1-choosing-a-i18n-strategy)
+    - [2. Install [`angular-cli`](https://github.com/angular/angular-cli)](#2-install-angular-clihttpsgithubcomangularangular-cli)
+    - [3. Bootstrap the Angular App](#3-bootstrap-the-angular-app)
+    - [4. Serve the App in the Browser](#4-serve-the-app-in-the-browser)
+    - [5. Create a New Component](#5-create-a-new-component)
+    - [6. Install `@ngx-translate`](#6-install-ngx-translate)
+    - [8. Declare `@ngx-translate` in the App's Parent Module](#8-declare-ngx-translate-in-the-apps-parent-module)
+    - [9. Automatically Extract Texts Marked for Translation](#9-automatically-extract-texts-marked-for-translation)
+    - [12. Add `ngx-translate-extract` as a `npm` Script](#12-add-ngx-translate-extract-as-a-npm-script)
+    - [10. Inject `translate` Into the Main App Component](#10-inject-translate-into-the-main-app-component)
+    - [11. Mark Texts for Translation](#11-mark-texts-for-translation)
+    - [12. Switch Languages](#12-switch-languages)
+    - [13. Enjoy! 😎](#13-enjoy-😎)
 
 ### 1. Choosing a i18n strategy
 
