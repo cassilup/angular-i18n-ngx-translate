@@ -4,7 +4,7 @@
 
 ### Table of Contents
 1. [Choosing a i18n strategy](#1-choosing-a-i18n-strategy)
-2. [Install [`angular-cli`](https://github.com/angular/angular-cli)](#2-install-angular-clihttpsgithubcomangularangular-cli)
+2. [Install `angular-cli`](#2-install-angular-clihttpsgithubcomangularangular-cli)
 3.  [Bootstrap the Angular App](#3-bootstrap-the-angular-app)
 4.  [Serve the App in the Browser](#4-serve-the-app-in-the-browser)
 5.  [Create a New Component](#5-create-a-new-component)
@@ -16,6 +16,8 @@
 11. [ Mark Texts for Translation](#11-mark-texts-for-translation)
 12. [ Switch Languages](#12-switch-languages)
 13. [ Enjoy! 😎](#13-enjoy-😎)
+
+---
 
 ### 1. Choosing a i18n strategy
 
